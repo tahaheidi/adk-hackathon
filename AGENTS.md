@@ -24,10 +24,9 @@ Project Aegis MVP: Four-agent system for code quality and compliance in healthca
 **Type**: `LlmAgent` | **Model**: `gemini-2.5-pro`
 
 **Key Responsibilities**:
-- Perform static code analysis (security, compliance, quality, performance)
-- Compare implementation against specification
-- Detect PHI exposure risks and HIPAA/GDPR violations
-- Generate audit report with severity-classified issues (P1/P2/P3)
+- Based on the spec supplied by the spec agent, analyzes assigned file for breach of spec
+- Only consults one file, but does so comprehensively
+- **Parallel Execution**: One agent instance spawned per file change, all run in parallel
 
 ### 4. Edit Proposal Agent (Human-in-the-Loop)
 **Type**: `LlmAgent` | **Model**: `gemini-2.5-pro`
