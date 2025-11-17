@@ -20,8 +20,8 @@ from entry_agent import tools
 root_agent = Agent(
     model="gemini-2.5-pro",
     name="entry_agent",
-    description="Detects if a spec doc exists and routes to Spec Agent or Audit Agent.",
-    instruction="You are an agent that checks for the existence of a `spec.yaml` file. Use the `check_spec_exists` tool to check for the file. If the file exists, you will delegate to the 'audit_agent'. If it does not exist, you will delegate to the 'spec_agent'.",
+    description="Agent that helps create audit code and create spec file used to audit code.",
+    instruction="Check if user has provided a spec file in the input. If the file exists, you will delegate to the 'audit_agent'. If it does not exist, you will delegate to the 'spec_agent'.",
     tools=[
         tools.check_spec_exists,
     ],

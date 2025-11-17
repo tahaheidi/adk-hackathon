@@ -1,0 +1,5 @@
+spec:
+  - MUST NOT log any PHI (patient names, SSNs, medical records)
+  - MUST allocate gpt-3.5-turbo to users with tier='free'
+  - SHOULD validate all user inputs before processing
+  - MUST use AES-256 encryption for data at rest

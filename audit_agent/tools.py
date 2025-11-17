@@ -24,8 +24,3 @@ def read_code(file_path: str) -> str:
     """Reads a code file and returns its content."""
     with open(file_path, 'r') as f:
         return f.read()
-
-def extract_file_path(user_input: str) -> str:
-    """Extracts a file path from the user input."""
-    # This is a simple implementation. A more robust implementation would use regex or other methods.
-    return user_input.strip()
