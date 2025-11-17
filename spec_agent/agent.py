@@ -20,7 +20,16 @@ spec_agent = Agent(
     model="gemini-2.5-pro",
     name="spec_agent",
     description="Generates specification documents by talking to a human.",
-    instruction="You are an agent that helps generate specs in order to audit code files. You should ask user for feedback and then reiterate until the user is satisfied with the spec. Once the user is satisfied, you should save the spec file and return it.",
+    instruction="""
+    You are an agent that helps generate specs in order to audit code files. You should ask user for feedback and then reiterate until the user is satisfied with the spec. Once the user is satisfied, you should save the spec file and return it.
+    Here's an example of a spec.yaml file:
+    ```yaml
+    spec:
+      - MUST NOT log any PHI (patient names, SSNs, medical records)
+      - MUST allocate gpt-3.5-turbo to users with tier='free'
+      - SHOULD validate all user inputs before processing
+    ```
+    """,
     tools=[
         LongRunningFunctionTool(func=generate_spec),
         save_spec,
