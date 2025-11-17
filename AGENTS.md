@@ -19,6 +19,7 @@ Project Aegis MVP: Four-agent system for code quality and compliance in healthca
 - Include functional, technical, and compliance requirements (HIPAA/GDPR)
 - Present spec to human reviewer for approval
 - Incorporate feedback before passing to Audit Agent
+- output format is yaml
 
 ### 3. Audit Agent
 **Type**: `LlmAgent` | **Model**: `gemini-2.5-pro`
@@ -26,6 +27,7 @@ Project Aegis MVP: Four-agent system for code quality and compliance in healthca
 **Key Responsibilities**:
 - Based on the spec supplied by the spec agent, analyzes assigned file for breach of spec
 - Only consults one file, but does so comprehensively
+- Tools: load and read spec and code files. Extract file path from user input.
 - **Parallel Execution**: One agent instance spawned per file change, all run in parallel
 
 ### 4. Edit Proposal Agent (Human-in-the-Loop)
