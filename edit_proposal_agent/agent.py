@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from google.adk import Agent
-from google.adk.tools.long_running_tool import LongRunningFunctionTool
+from google.adk.tools.long_running_tool import FunctionTool
 
 def propose_edit(audit_findings: str):
     """Starts a conversation with a human to propose edits based on audit findings."""
@@ -28,6 +28,6 @@ edit_proposal_agent = Agent(
     description="Synthesizes audit findings into fix proposals and presents them to a human for approval.",
     instruction="You are an agent that generates code change proposals based on audit findings. Start by calling the `propose_edit` tool with the audit findings.",
     tools=[
-        LongRunningFunctionTool(func=propose_edit),
+        FunctionTool(func=propose_edit),
     ],
 )
