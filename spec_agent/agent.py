@@ -14,20 +14,15 @@
 
 from google.adk import Agent
 from google.adk.tools.long_running_tool import LongRunningFunctionTool
-
-def generate_spec():
-    """Starts a conversation with a human to generate a spec file."""
-    return {
-        "status": "pending",
-        "message": "I need to generate a spec file. Please provide the requirements."
-    }
+from .tools import generate_spec, save_spec
 
 spec_agent = Agent(
     model="gemini-2.5-pro",
     name="spec_agent",
     description="Generates specification documents by talking to a human.",
-    instruction="You are an agent that generates a `spec.yaml` file by talking to a human. Start by calling the `generate_spec` tool.",
+    instruction="You are an agent that helps generate specs in order to audit code files. You should ask user for feedback and then reiterate until the user is satisfied with the spec. Once the user is satisfied, you should save the spec file and return it.",
     tools=[
         LongRunningFunctionTool(func=generate_spec),
+        save_spec,
     ],
 )

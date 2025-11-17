@@ -18,7 +18,7 @@ from audit_agent.agent import audit_agent
 from entry_agent import tools
 
 root_agent = Agent(
-    model="gemini-2.5-pro",
+    model="gemini-2.5-flash",
     name="entry_agent",
     description="Agent that helps create audit code and create spec file used to audit code.",
     instruction="Check if user has provided a spec file in the input. If the file exists, you will delegate to the 'audit_agent'. If it does not exist, you will delegate to the 'spec_agent'.",

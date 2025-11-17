@@ -1,0 +1,9 @@
+
+logging:
+  level: INFO
+  excluded_fields:
+    - user_id
+    - name
+    - email
+    - phone_number
+    - address
